@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\{ScrapController};
+use App\Http\Controllers\{ScrapController, MangaController};
 
 
 /*
@@ -16,4 +16,6 @@ use App\Http\Controllers\{ScrapController};
 */
 
 
-Route::get('/', [ScrapController::class, 'Scrap'])->name('scrap');
+Route::get('/', [MangaController::class, 'index']);
+
+Route::resource('Mangas', MangaController::class);
