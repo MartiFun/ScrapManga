@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Goutte\Client;
 use GuzzleHttp\Client as GuzzleClient;
+use App\Models\{ Manga };
 
 class MangaController extends Controller
 {
@@ -15,18 +16,9 @@ class MangaController extends Controller
      */
     public function index()
     {
-      // $string = file_get_contents("../storage/app/public/manga.json");
-      // $json_file = json_decode($string);
-      //
-      // $goutte = new Client();
-      // $crawler = $goutte->request('GET', $json_file[8]->url);
-      // $querry = $crawler->filter('.dl-horizontal *');
-      //
-      // for ($i=0; $i < count($querry) ; $i++) {
-      //   if ($crawler->filter('.dl-horizontal *')->eq($i)->text() == 'Catégories') {
-      //     echo $crawler->filter('.dl-horizontal *')->eq($i)->nextAll()->eq(0)->text();
-      //   }
-      // }
+      $mangas = Manga::paginate(20);
+      return view('welcome', compact('mangas'));
+
     }
 
     /**

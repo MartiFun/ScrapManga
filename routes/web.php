@@ -18,4 +18,6 @@ use App\Http\Controllers\{ScrapController, MangaController};
 
 Route::get('/', [MangaController::class, 'index']);
 
+Route::get('/scrap', [ScrapController::class, 'scrap']);
+
 Route::resource('Mangas', MangaController::class);

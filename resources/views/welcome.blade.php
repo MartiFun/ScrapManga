@@ -1,10 +1,12 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Laravel</title>
-    </head>
-    <body>
-    </body>
-</html>
+@extends('layouts.app')
+
+@section('content')
+      <div class="mangas">
+        <?php foreach ($mangas as $manga): ?>
+          <div class="manga">
+            <img src="{{$manga->img}}" alt="">
+          </div>
+        <?php endforeach; ?>
+      </div>
+      {{ $mangas->links() }}
+@endsection

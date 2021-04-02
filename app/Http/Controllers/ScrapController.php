@@ -15,18 +15,15 @@ class ScrapController extends Controller
     $crawler = $goutte->request('GET', env('MANGA_URL'));
     $index = 0;
     $thumbs = [];
-    // $li = $crawler->filter('.alpha-link');
-    // for ($i=0; $i < count($li)/100; $i++) {
-    //   $thumb = $crawler->filter('.alpha-link')->eq($i)->attr('href');
-    //   array_push($thumbs, $thumb);
-    // }
     $li = $crawler->filter('.alpha-link');
-    // dd(count($li));
-    for ($i=2500; $i < 2526; $i++) {
+
+    for ($i=0; $i < 2526; $i++) {
       array_push($thumbs, ScrapController::GetManga($i, $crawler, $thumbs));
+      ini_set('max_execution_time', 180); //3 minutes
     }
 
     Storage::disk('public')->put('data6.json', json_encode($thumbs));
+    Artisan::call('db:seed');
   }
 
   static function GetManga($index, $crawler, $thumbs)

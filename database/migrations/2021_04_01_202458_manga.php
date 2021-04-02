@@ -16,7 +16,6 @@ class Manga extends Migration
       Schema::create('mangas', function (Blueprint $table) {
           $table->id();
           $table->text('nom')->unique();
-          $table->text('desc');
           $table->text('img');
           $table->text('auteur');
           $table->text('categorie');
