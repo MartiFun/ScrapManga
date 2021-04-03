@@ -17,8 +17,7 @@ class MangaController extends Controller
     public function index()
     {
       $mangas = Manga::paginate(20);
-      return view('welcome', compact('mangas'));
-
+      return view('mangas.add', compact('mangas'));
     }
 
     /**

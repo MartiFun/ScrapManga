@@ -22,7 +22,7 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/plats') }}">
+                <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -40,21 +40,21 @@
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                <strong><a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a></strong>
                             </li>
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <strong><a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a></strong>
                                 </li>
                             @endif
                         @else
-                          @if (auth()->user()->is_admin == 1)
+                          {{-- @if (auth()->user()->is_admin == 1)
                             <li><a class="button is-info" href="{{ route('plats.create') }}">Créer un Plat</a></li>
                             <li>&nbsp;&nbsp;</li>
                             <li><a class="button is-info" href="{{ route('plats.admin') }}">admin</a></li>
                           @else
                             <li><a class="button is-info" href="{{ route('paniers.index') }}">Panier</a></li>
-                          @endif
+                          @endif --}}
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}

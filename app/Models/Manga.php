@@ -22,4 +22,10 @@ class Manga extends Model
         'categorie',
     ];
 
+    public function categories()
+    {
+      return $this->belongsToMany(Category::class);
+    }
+
+
 }

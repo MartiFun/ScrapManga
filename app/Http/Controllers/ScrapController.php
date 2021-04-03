@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Goutte\Client;
 use GuzzleHttp\Client as GuzzleClient;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Artisan;
 
 class ScrapController extends Controller
 {
@@ -16,14 +17,13 @@ class ScrapController extends Controller
     $index = 0;
     $thumbs = [];
     $li = $crawler->filter('.alpha-link');
-
-    for ($i=0; $i < 2526; $i++) {
+    for ($i=0; $i < count($li); $i++) {
       array_push($thumbs, ScrapController::GetManga($i, $crawler, $thumbs));
       ini_set('max_execution_time', 180); //3 minutes
     }
 
     Storage::disk('public')->put('data6.json', json_encode($thumbs));
-    Artisan::call('db:seed');
+    \Artisan::call('db:seed');
   }
 
   static function GetManga($index, $crawler, $thumbs)

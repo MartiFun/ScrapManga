@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Manga extends Migration
+class CreateCategoriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,12 @@ class Manga extends Migration
      */
     public function up()
     {
-      Schema::disableForeignKeyConstraints();
-      Schema::create('mangas', function (Blueprint $table) {
-          $table->id();
-          $table->text('nom')->unique();
-          $table->text('img');
-          $table->text('auteur');
-          $table->timestamps();
-      });
+        Schema::create('categories', function (Blueprint $table) {
+            $table->id();
+            $table->string('nom')->unique();
+            $table->string('slug')->unique();
+            $table->timestamps();
+        });
     }
 
     /**
@@ -30,6 +28,6 @@ class Manga extends Migration
      */
     public function down()
     {
-      Schema::dropIfExists('mangas');
+        Schema::dropIfExists('categories');
     }
 }

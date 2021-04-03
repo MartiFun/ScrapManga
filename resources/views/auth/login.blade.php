@@ -70,4 +70,8 @@
         </div>
     </div>
 </div>
+<div class="image">
+</div>
+<div class="image2">
+</div>
 @endsection
