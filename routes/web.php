@@ -16,7 +16,7 @@ use App\Http\Controllers\{ScrapController, MangaController};
 */
 
 
-Route::get('/', [MangaController::class, 'index']);
+Route::get('/', [MangaController::class, 'index'])->middleware('auth');;
 
 Route::get('/scrap', [ScrapController::class, 'scrap']);
 

@@ -1,3 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
+$primary: #E0E5EC;
+
+body{
+  background-color: $primary;
+  height: 100vh;
+  width: 100%;
+}
+
+
+.navbar{
+  border-radius: 5px !important;
+  box-shadow: 9px 9px 16px rgba(163,177,198,0.6),
+              -9px -9px 16px rgba(255,255,255,0.5) !important;
+  background-color: $primary !important;
+
+
+}
+
+
+//login
+.login-card{
+  border-radius: 5px;
+  box-shadow: 9px 9px 16px rgba(163,177,198,0.6),
+              -9px -9px 16px rgba(255,255,255,0.5);
+  background-color: $primary;
+  margin-top: 20vh;
+  strong{
+    color: #212f49;
+  }
+  label{
+    color: #7888a2;
+  }
+  button{
+    border-radius: 5px;
+    box-shadow: 9px 9px 16px rgba(163,177,198,0.6),
+                -9px -9px 16px rgba(255,255,255,0.5);
+    background-color: $primary;
+    padding: 10px;
+    width: 80px;
+    font-size: 13px !important;
+  }
+  a{
+    border-radius: 5px;
+    box-shadow: 9px 9px 16px rgba(163,177,198,0.6),
+                -9px -9px 16px rgba(255,255,255,0.5);
+    background-color: $primary;
+    padding: 10px;
+    width: 180px;
+    font-size: 13px;
+  }
+  input{
+    border-radius: 4px;
+    padding: 5px 15px;
+    outline: none !important;
+    color: #535D74;
+  }
+
+  .card-head {
+    border-radius: 5px;
+    padding: .75rem 1.25rem;
+    margin-bottom: 0;
+  }
+}
+
 .mangas{
   width: 100%;
   display: flex;
