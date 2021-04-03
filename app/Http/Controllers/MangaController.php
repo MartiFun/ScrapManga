@@ -16,8 +16,14 @@ class MangaController extends Controller
      */
     public function index()
     {
-      $mangas = Manga::paginate(20);
-      return view('mangas.add', compact('mangas'));
+      $mangas = Manga::paginate(50);
+      return view('mangas.index', compact('mangas'));
+    }
+
+    public function search(Request $request)
+    {
+      $mangas = Manga::where('nom', 'like', '%'.$request->nom.'%')->oldest('nom')->paginate(50);
+      return view('mangas.index', compact('mangas'));
     }
 
     /**

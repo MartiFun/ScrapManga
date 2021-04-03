@@ -18,6 +18,7 @@ use App\Http\Controllers\{ScrapController, MangaController};
 
 Route::get('/', [MangaController::class, 'index'])->middleware('auth');;
 
-Route::get('/scrap', [ScrapController::class, 'scrap']);
+Route::get('/scrap', [ScrapController::class, 'scrap'])->middleware('auth');
 
-Route::resource('Mangas', MangaController::class);
+Route::resource('Mangas', MangaController::class)->middleware('auth');
+Route::get('nom/mangas', [MangaController::class, 'search'])->name('mangas.nom')->middleware('auth');
