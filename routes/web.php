@@ -22,3 +22,4 @@ Route::get('/scrap', [ScrapController::class, 'scrap'])->middleware('auth');
 
 Route::resource('Mangas', MangaController::class)->middleware('auth');
 Route::get('nom/mangas', [MangaController::class, 'search'])->name('mangas.nom')->middleware('auth');
+Route::get('category/{slug}/mangas', [MangaController::class, 'searchByCat'])->name('mangas.category')->middleware('auth');

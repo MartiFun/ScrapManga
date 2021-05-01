@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Goutte\Client;
 use GuzzleHttp\Client as GuzzleClient;
-use App\Models\{ Manga };
+use App\Models\{ Manga, Category };
 
 class MangaController extends Controller
 {
@@ -16,14 +16,23 @@ class MangaController extends Controller
      */
     public function index()
     {
-      $mangas = Manga::paginate(50);
-      return view('mangas.index', compact('mangas'));
+      // $categories = Category::all();
+      // $mangas = Manga::paginate(50);
+      return view('mangas.index');
     }
 
     public function search(Request $request)
     {
       $mangas = Manga::where('nom', 'like', '%'.$request->nom.'%')->oldest('nom')->paginate(50);
       return view('mangas.index', compact('mangas'));
+    }
+
+    public function searchByCat($slug = null)
+    {
+      // $categories = Category::all();
+      // $query = $slug ? Category::whereSlug($slug)->firstOrFail()->mangas() : Manga::query();
+      // $mangas = $query->oldest('nom')->paginate(50);
+      // return view('mangas.index', compact('mangas', 'categories', 'slug'));
     }
 
     /**

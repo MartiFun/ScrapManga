@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.0/css/bulma.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/app.css">
+    @livewireStyles
 </head>
 <body>
     <div id="app">
@@ -84,6 +85,7 @@
     </div>
 
     <!-- Scripts -->
+    @livewireScripts
     <script src="/js/app.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script><br />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>

@@ -16,9 +16,9 @@ class Manga extends Migration
       Schema::disableForeignKeyConstraints();
       Schema::create('mangas', function (Blueprint $table) {
           $table->id();
-          $table->text('nom')->unique();
+          $table->text('nom');
           $table->text('img');
-          $table->text('auteur');
+          $table->text('rank');
           $table->timestamps();
       });
     }
